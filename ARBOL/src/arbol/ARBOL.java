@@ -16,25 +16,31 @@ import javax.swing.JOptionPane;
  */
 public class ARBOL {
 
-    public static void main(String[] args) {
-        // TODO code application logic here
-         int opt = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresar socio \n"
-                    + "1. Si.  \n"
-                    + "2. No."));
-
-                
-                switch (opt)
-                {
-                case 1:
-                    JOptionPane.showMessageDialog(null, "No hay mas cupos para registro de usuarios VIP","Lo sentimos!!!...", JOptionPane.WARNING_MESSAGE);
-                   
+    public static void main(String[] args) 
+    {
+        int cantidadSocios =6;
+        Club club = new Club(cantidadSocios);
+        boolean salir =false;
+        while(!salir)
+        {
+                int opt = Integer.parseInt(JOptionPane.showInputDialog(null,"Desea ingresar un nuevo socio \n"
+                + "1. Registrar un nuevo socio \n"
+                + "2. datos socios \n"
+                + "0. salir"));
+        
+            switch(opt){
+                case 1:{
+                    club.registrar();
                     break;
-                
-                } 
+                }case 2:{
+                   JOptionPane.showMessageDialog(null, club.verSocios());
+                    break;
+                }case 0:{
+                    salir = true;
+                }
+            }
+        }
         
-        
-        
-        Persona persona = new Persona();
     }
     
 }
